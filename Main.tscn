@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://7apgf50ag13m"]
+[gd_scene load_steps=6 format=3 uid="uid://ck6gsbs5ukr53"]
 
 [ext_resource type="Texture2D" uid="uid://d3nig3ro6rr7x" path="res://assets/PNG/Man Blue/manBlue_gun.png" id="1_3a8mq"]
 [ext_resource type="Script" path="res://Player.gd" id="1_28bd3"]
+[ext_resource type="Texture2D" uid="uid://o35ng1njvqvl" path="res://assets/PNG/Default size/bulletSand1.png" id="3_n4tp6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ti0qh"]
 radius = 19.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw2a"]
+size = Vector2(4, 10)
+
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(903, 445)
+position = Vector2(118, 77)
 script = ExtResource("1_28bd3")
 metadata/_edit_group_ = true
 
@@ -20,3 +24,11 @@ texture = ExtResource("1_3a8mq")
 [node name="Shape" type="CollisionShape2D" parent="Player"]
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_ti0qh")
+
+[node name="Bullet" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Bullet"]
+shape = SubResource("RectangleShape2D_ybw2a")
+
+[node name="Sprite" type="Sprite2D" parent="Bullet"]
+texture = ExtResource("3_n4tp6")
