@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnv7q8kevu5ei"]
+
+[ext_resource type="Script" path="res://NetworkSetup.gd" id="1_ef4vf"]
+
+[sub_resource type="SystemFont" id="SystemFont_utltk"]
+font_names = PackedStringArray("Arial")
+font_style = 1
+
+[sub_resource type="SystemFont" id="SystemFont_eg2hm"]
+font_names = PackedStringArray("Arial")
+font_style = 1
+generate_mipmaps = true
+
+[sub_resource type="SystemFont" id="SystemFont_c1sil"]
+font_names = PackedStringArray("Arial")
+font_style = 1
+
+[node name="NetworkSetup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_ef4vf")
+
+[node name="MultiplayerConfigure" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerConfigure"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -349.0
+offset_right = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+metadata/_edit_layout_mode = 1
+
+[node name="CreateServer" type="Button" parent="MultiplayerConfigure/VBoxContainer"]
+offset_top = 400.0
+offset_right = 700.0
+offset_bottom = 480.0
+theme_override_fonts/font = SubResource("SystemFont_utltk")
+theme_override_font_sizes/font_size = 64
+text = "Create Server"
+
+[node name="JoinServer" type="Button" parent="MultiplayerConfigure/VBoxContainer"]
+offset_top = 500.0
+offset_right = 700.0
+offset_bottom = 580.0
+theme_override_fonts/font = SubResource("SystemFont_eg2hm")
+theme_override_font_sizes/font_size = 64
+text = "Join Server"
+
+[node name="ServerIPAddress" type="LineEdit" parent="MultiplayerConfigure/VBoxContainer"]
+offset_top = 600.0
+offset_right = 700.0
+offset_bottom = 680.0
+theme_override_fonts/font = SubResource("SystemFont_c1sil")
+theme_override_font_sizes/font_size = 64
+placeholder_text = "Enter IP Address"
+alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DeviceIPAddress" type="Label" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+
+[connection signal="pressed" from="MultiplayerConfigure/VBoxContainer/CreateServer" to="." method="_on_create_server_pressed"]
+[connection signal="pressed" from="MultiplayerConfigure/VBoxContainer/JoinServer" to="." method="_on_join_server_pressed"]

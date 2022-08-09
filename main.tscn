@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://7apgf50ag13m"]
+
+[ext_resource type="Texture2D" uid="uid://d3nig3ro6rr7x" path="res://assets/PNG/Man Blue/manBlue_gun.png" id="1_3a8mq"]
+[ext_resource type="Script" path="res://Player.gd" id="1_28bd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ti0qh"]
+radius = 19.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(903, 445)
+script = ExtResource("1_28bd3")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+position = Vector2(10, 0)
+texture = ExtResource("1_3a8mq")
+
+[node name="Shape" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_ti0qh")
