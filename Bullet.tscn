@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://crrx5a30x7psb"]
+
+[ext_resource type="Texture2D" uid="uid://o35ng1njvqvl" path="res://assets/PNG/Default size/bulletSand1.png" id="1_nplqn"]
+[ext_resource type="Script" path="res://Bullet.gd" id="1_rdlho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw2a"]
+size = Vector2(8, 14)
+
+[node name="Bullet" type="Area2D"]
+rotation = 1.5708
+script = ExtResource("1_rdlho")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ybw2a")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nplqn")

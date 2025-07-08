@@ -1,5 +1,9 @@
 extends CharacterBody2D
+class_name Bullet
 
+@export var BulletScene: PackedScene
+
+@onready var end_of_gun := $EndOfGun as Marker2D
 
 const SPEED := 300.0
 
@@ -21,4 +25,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func shoot() -> void:
-	pass
+	var bullet_instance := BulletScene.instantiate()
+	get_tree().root.add_child(bullet_instance)
+	bullet_instance.global_position = end_of_gun.global_position
+	var target := get_global_mouse_position()
+	var direction_to_target = bullet_instance.global_position.direction_to(target)
+	bullet_instance.rotation = rotation + bullet_instance.rotation
+	bullet_instance.direction = direction_to_target

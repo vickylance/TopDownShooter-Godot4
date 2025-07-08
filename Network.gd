@@ -8,7 +8,7 @@ var client: ENetMultiplayerPeer = null
 var ip_address := ""
 
 func _ready() -> void:
-	var local_addresses := IP.get_local_addresses() as Array[String]
+	var local_addresses := IP.get_local_addresses() as Array
 	if OS.get_name() == "Windows":
 		ip_address = local_addresses[3]
 	elif OS.get_name() == "Android":

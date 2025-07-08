@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3rpsa7paiah4"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_pmcq6"]
+[ext_resource type="Texture2D" uid="uid://d3nig3ro6rr7x" path="res://assets/PNG/Man Blue/manBlue_gun.png" id="2_7lj16"]
+[ext_resource type="PackedScene" uid="uid://crrx5a30x7psb" path="res://Bullet.tscn" id="2_cjdrg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ti0qh"]
+radius = 19.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pmcq6")
+BulletScene = ExtResource("2_cjdrg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("2_7lj16")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_ti0qh")
+
+[node name="EndOfGun" type="Marker2D" parent="."]
+position = Vector2(37, 10)
